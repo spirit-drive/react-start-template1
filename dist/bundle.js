@@ -1,0 +1,1 @@
+(()=>{console.log("Hello, world!");const e=new class{name="React"},t=document.createElement("p");t.textContent=`I like ${e.name}.`;const n=document.createElement("h1");n.textContent="Как интересно!";const o=document.querySelector("#root");o&&o.append(n,t)})();
