@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: './index.tsx',
-	context: path.resolve(__dirname, 'src'),
+	context: path.resolve(__dirname, 'src'), // базовая директория
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'bundle.js', // название выходного файла
@@ -19,7 +19,6 @@ module.exports = {
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
 				type: 'asset/resource',
 			},
-			// `js` and `jsx` files are parsed using `babel`
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
@@ -27,14 +26,20 @@ module.exports = {
 			},
 			{
 				test: /\.(js|ts)x?$/,
-				loader: require.resolve("babel-loader"),
 				exclude: /node_modules/,
+				use: ["babel-loader"],
+
 			},
 
 		],
 	},
 	resolve: {
-		extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
+		extensions: ["*", ".js", ".jsx", ".ts", ".tsx"], // позволяет не указывать расширения при импорте
+		// alias: {
+		// 	Utilities: path.resolve(__dirname, 'src/utilities/'),
+		// 	Templates: path.resolve(__dirname, 'src/templates/'),
+		//   }, ----  позволит вместо 'import Utility from '../../utilities/utility';' 
+		//            использовать 'import Utility from 'Utilities / utility';'
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
@@ -42,4 +47,5 @@ module.exports = {
 			filename: 'index.html', // название выходного файла
 		}),
 	],
+	mode: process.env.NODE_ENV === 'production' ? 'production' : 'development'
 }

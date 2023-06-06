@@ -4,7 +4,8 @@
   "description": "Start repo with required configuration",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "NODE_ENV='production' webpack",
+    "start": "webpack-dev-server",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
