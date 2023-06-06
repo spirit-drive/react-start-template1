@@ -15,6 +15,11 @@
     "build-storybook": "storybook build",
     "prepare": "husky install"
   },
+  "husky": {    
+   "hooks": {      
+     "pre-commit": "npm run lint"
+   }  
+},
   "author": "",
   "license": "ISC",
   "devDependencies": {
