@@ -6,16 +6,16 @@
         "es2021": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
         "plugin:react/jsx-runtime", // позволяет не импортировать реакт
         "plugin:react-hooks/recommended", //поддержка хуков
         "plugin:import/recommended", // подсказки при импорте
         // "airbnb",
         "prettier", // отключает конфликты с prettier
         "plugin:prettier/recommended",
-        "plugin:jest/recommended"
+        "plugin:jest/recommended",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "overrides": [],
     "parser": "@typescript-eslint/parser",
