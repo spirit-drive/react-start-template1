@@ -14,7 +14,7 @@ export class SomeClass {
   public channel: BroadcastChannel;
 
   constructor() {
-    this.set = new Set([1]);
+    this.set = new Set<number>([1]);
     this.channel = new BroadcastChannel('test-broadcast-channel');
   }
 }
