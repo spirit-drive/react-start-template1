@@ -1,7 +1,7 @@
 # Стартовый шаблон React
 
 Включает в себя
-- react 18
+- react
 - typescript
 - storybook
 - jest
