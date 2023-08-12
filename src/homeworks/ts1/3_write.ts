@@ -43,14 +43,74 @@
  * - type ('Profit')
  * */
 
+interface Category {
+  id: string;
+  name: string;
+  photo?: string;
+}
+
+interface Product {
+  id: string;
+  name: string;
+  photo: string;
+  desc?: string;
+  createdAt: string;
+  oldPrice?: number;
+  price: number;
+  category: Category;
+}
+
+type Operation = Cost | Profit;
+
+interface Cost {
+  id: string;
+  name: string;
+  desc?: string;
+  createdAt: string;
+  amount: number;
+  category: Category;
+  type: 'Cost';
+}
+
+interface Profit {
+  id: string;
+  name: string;
+  desc?: string;
+  createdAt: string;
+  amount: number;
+  category: Category;
+  type: 'Profit';
+}
+
 /**
  * Создает случайный продукт (Product).
  * Принимает дату создания (строка)
  * */
-// export const createRandomProduct = (createdAt: string) => {};
+export const createRandomProduct = (createdAt: string) => {
+  return {
+    id: 'productId',
+    name: 'productName',
+    photo: 'productPhoto',
+    desc: 'productDesc',
+    createdAt: createdAt,
+    oldPrice: 12,
+    price: 14,
+    category: { id: 'categoryId', name: 'categoryName', photo: 'categoryPhoto' },
+  };
+};
 
 /**
  * Создает случайную операцию (Operation).
  * Принимает дату создания (строка)
  * */
-// export const createRandomOperation = (createdAt: string) => {};
+export const createRandomOperation = (createdAt: string) => {
+  return {
+    id: 'profitId',
+    name: 'profitName',
+    desc: 'profitDesc',
+    createdAt: createdAt,
+    amount: 2,
+    category: { id: 'categoryId', name: 'categoryName', photo: 'categoryPhoto' },
+    type: 'Profit',
+  };
+};
