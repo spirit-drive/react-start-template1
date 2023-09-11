@@ -35,7 +35,7 @@ type Product = {
   name: string;
   photo: string;
   desc?: string;
-  createdAt: string;
+  createdAt: Date;
   oldPrice?: number;
   price: number;
   category: Category;
@@ -82,7 +82,7 @@ type Cost = OperationType<'Cost'>;
 type Profit = OperationType<'Profit'>;
 
 export const createRandomCategory = (): Category => {
-  return <Category>{
+  return {
     id: faker.string.uuid(),
     name: faker.word.noun({ length: { min: 5, max: 10 } }),
     photo: faker.image.url(),
@@ -93,7 +93,7 @@ export const createRandomCategory = (): Category => {
  * Создает случайный продукт (Product).
  * Принимает дату создания (строка)
  * */
-export const createRandomProduct = (createdAt: string): Product => {
+export const createRandomProduct = (createdAt: Date): Product => {
   return {
     id: faker.string.uuid(),
     name: faker.word.noun({ length: { min: 5, max: 10 } }),
