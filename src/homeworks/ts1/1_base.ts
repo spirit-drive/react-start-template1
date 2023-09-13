@@ -39,7 +39,7 @@ export const getColorContrastValue = ([red, green, blue]: RGB): number =>
   // http://www.w3.org/TR/AERT#color-contrast
   Math.round((red * 299 + green * 587 + blue * 114) / 1000);
 
-export const getContrastType = (contrastValue: number): string => (contrastValue > 125 ? 'black' : 'white');
+export const getContrastType = (contrastValue: number): 'black' | 'white' => (contrastValue > 125 ? 'black' : 'white');
 
 export const shortColorRegExp = /^#[0-9a-f]{3}$/i;
 export const longColorRegExp = /^#[0-9a-f]{6}$/i;
@@ -78,8 +78,8 @@ interface Customers {
   [index: number]: { name: string; age: number; isSubscribed: boolean };
 }
 
-export const transformCustomers = (customers: Customer[]) => {
-  return customers.reduce((acc: Customers, customer: Customer) => {
+export const transformCustomers = (customers: Customer[]): Customers => {
+  return customers.reduce((acc: Customers, customer: Customer): Customers => {
     acc[customer.id] = { name: customer.name, age: customer.age, isSubscribed: customer.isSubscribed };
 
     return acc;
