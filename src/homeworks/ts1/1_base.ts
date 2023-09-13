@@ -15,7 +15,12 @@ export const round = (value: number, accuracy = 2) => {
 const transformRegexp =
   /(matrix\(-?\d+(\.\d+)?, -?\d+(\.\d+)?, -?\d+(\.\d+)?, -?\d+(\.\d+)?, )(-?\d+(\.\d+)?), (-?\d+(\.\d+)?)\)/;
 
-export const getTransformFromCss = (transformCssString: string) => {
+export type Transform = {
+  x: number;
+  y: number;
+};
+
+export const getTransformFromCss = (transformCssString: string): Transform => {
   const data = transformCssString.match(transformRegexp);
   if (!data) return { x: 0, y: 0 };
   return {
@@ -24,26 +29,28 @@ export const getTransformFromCss = (transformCssString: string) => {
   };
 };
 
-export const getColorContrastValue = (rgb: RGB) =>
-  // http://www.w3.org/TR/AERT#color-contrast
-  Math.round((rgb.red * 299 + rgb.green * 587 + rgb.blue * 114) / 1000);
-
 interface RGB {
   red: number;
   green: number;
   blue: number;
 }
 
-export const getContrastType = (contrastValue: number) => (contrastValue > 125 ? 'black' : 'white');
+export const getColorContrastValue = (rgb: RGB) =>
+  // http://www.w3.org/TR/AERT#color-contrast
+  Math.round((rgb.red * 299 + rgb.green * 587 + rgb.blue * 114) / 1000);
+
+export type ContrastType = 'black' | 'white';
+
+export const getContrastType = (contrastValue: number): ContrastType => (contrastValue > 125 ? 'black' : 'white');
 
 export const shortColorRegExp = /^#[\da-f]{3}$/i;
 export const longColorRegExp = /^#[\da-f]{6}$/i;
 
-export const checkColor = (color: string) => {
+export const checkColor = (color: string): void | never => {
   if (!longColorRegExp.test(color) && !shortColorRegExp.test(color)) throw new Error(`invalid hex color: ${color}`);
 };
 
-export const hex2rgb = (color: string) => {
+export const hex2rgb = (color: string): [red: number, green: number, blue: number] => {
   checkColor(color);
   if (shortColorRegExp.test(color)) {
     const red = parseInt(color.substring(1, 2), 16);
@@ -57,24 +64,34 @@ export const hex2rgb = (color: string) => {
   return [red, green, blue];
 };
 
-export const getNumberedArray = (arr: number[]) => arr.map((value, number) => ({ value, number }));
-export const toStringArray = (arr: Foo[]) => arr.map(({ value, number }) => `${value}_${number}`);
-
 interface Foo {
   value: object;
   number: number;
 }
 
-export const transformCustomers = (customers: Customer[]) => {
-  return customers.reduce((acc, customer) => {
-    acc = { ...acc, [customer.id]: { name: customer.name, age: customer.age, isSubscribed: customer.isSubscribed } };
-    return acc;
-  }, {});
-};
+export const getNumberedArray = (arr: number[]) => arr.map((value, number) => ({ value, number }));
+export const toStringArray = (arr: Foo[]) => arr.map(({ value, number }) => `${value}_${number}`);
 
-interface Customer {
+interface CustomerEntity {
   id: number;
   name: string;
   age: number;
   isSubscribed: boolean;
 }
+
+interface Customer {
+  name: string;
+  age: number;
+  isSubscribed: boolean;
+}
+
+interface CustomerGrouped {
+  [id: string]: Customer;
+}
+
+export const transformCustomers = (customers: CustomerEntity[]): CustomerGrouped => {
+  return customers.reduce((acc, customer) => {
+    acc = { ...acc, [customer.id]: { name: customer.name, age: customer.age, isSubscribed: customer.isSubscribed } };
+    return acc;
+  }, {});
+};

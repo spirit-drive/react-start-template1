@@ -111,6 +111,6 @@ export const createRandomOperation = (createdAt: string) => {
     createdAt: createdAt,
     amount: 2,
     category: { id: 'categoryId', name: 'categoryName', photo: 'categoryPhoto' },
-    type: 'Profit',
+    type: 'Profit' | 'Cost',
   };
 };
