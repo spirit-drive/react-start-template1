@@ -1,0 +1,18 @@
+.container {
+  width: 376px;
+  height: 152px;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 4px;
+}
+
+.title {
+  margin-bottom: 5px;
+}
+
+.description {
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
