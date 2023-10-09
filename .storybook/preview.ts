@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react";
+import '../src/styles/index.sass';
 
 const preview: Preview = {
   parameters: {

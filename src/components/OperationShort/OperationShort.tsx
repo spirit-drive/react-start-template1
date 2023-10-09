@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import styles from './short.module.css';
+import './OperationShort.sass';
+import cn from 'clsx';
 
 interface OperationShortProps {
   name: string;
@@ -10,16 +11,24 @@ interface OperationShortProps {
 
 export const OperationShort: FC<OperationShortProps> = ({ name, category, sum = 0, desc }) => {
   return (
-    <article className={styles.container}>
-      <header>
-        <h3 className={styles.title}>{name}</h3>
-        <span>{category}</span>
-      </header>
-      <div>
-        <p>
-          <strong>{sum} €</strong>
-        </p>
-        <p className={styles.description}>{desc}</p>
+    <article className={cn('operation-short-container')}>
+      <div className={cn('operation-short-panel')}>
+        <div className={cn('operation-short-description')}>
+          <span>{desc}</span>
+        </div>
+        <div className={cn('operation-short-sum')}>
+          <span>{sum}</span>
+        </div>
+      </div>
+      <div className={cn('operation-short-panel')}>
+        <div className={cn('operation-short-name')}>
+          <div>{name}</div>
+        </div>
+        <div className={cn('operation-short-category')}>
+          <span>
+            <a href={'#'}>{category}</a>
+          </span>
+        </div>
       </div>
     </article>
   );

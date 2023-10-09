@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import styles from './modal.module.css';
+import './Modal.sass';
+import cn from 'clsx';
 
 interface ModalProps {
   visible: boolean;
@@ -11,13 +12,13 @@ export const Modal: FC<ModalProps> = ({ visible = false, children = '', title = 
   return (
     <>
       {visible && (
-        <div className={styles.modal}>
-          <article className={styles.container}>
-            <header className={styles.header}>
-              <span className={styles.close}>&times;</span>
+        <div className={cn('modal')}>
+          <article className={cn('modal-container')}>
+            <header>
+              <span className={cn('close')}>&times;</span>
               <h1>{title}</h1>
             </header>
-            <section className={styles.content}>{children}</section>
+            <section className={cn('modal-content')}>{children}</section>
           </article>
         </div>
       )}
