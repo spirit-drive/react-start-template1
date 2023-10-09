@@ -17,7 +17,7 @@ export const Default: Story = {
   args: {
     name: 'Yandex.Plus',
     category: 'Digital Goods',
-    sum: 3,
+    sum: 3.05,
     desc: 'Monthly subscription',
     date: new Date(),
   },

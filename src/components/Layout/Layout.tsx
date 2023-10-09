@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import { Header } from '../Header/Header';
-import styles from './layout.module.css';
+import './Layout.sass';
+import cn from 'clsx';
 
 export const Layout: FC = () => {
   return (
-    <div className={styles.layout}>
+    <div className={cn('layout')}>
       <Header />
-      <div>
+      <div className={cn('layout-content')}>
         <p>Some Content</p>
       </div>
     </div>

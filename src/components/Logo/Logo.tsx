@@ -1,10 +1,13 @@
 import React, { FC } from 'react';
-import styles from './logo.module.css';
+import './Logo.sass';
+import cn from 'clsx';
 
 export const Logo: FC = () => {
   return (
-    <div className={styles.logo}>
-      <span>Logo</span>
+    <div className={cn('logo-content')}>
+      <a href={'/'}>
+        <div className={cn('logo')}>Logo</div>
+      </a>
     </div>
   );
 };
