@@ -1,0 +1,21 @@
+$content-width: 1140px;
+
+$header-dark: #303030;
+$header-light: #fff;
+$layout-dark: #1b1b1b;
+$layout-light: #f6f7f8;
+$mode-light: 'light';
+$mode-dark: 'dark';
+
+@mixin theme($mode) {
+  $color: if($mode == $mode-dark, #fff, #000);
+  .header-container & {
+    background-color: if($mode == $mode-dark, $header-dark, $header-light) !important;
+    color: $color;
+  }
+
+  .layout-container & {
+    background-color: if($mode == $mode-dark, $layout-dark, $layout-light);
+    color: $color;
+  }
+}

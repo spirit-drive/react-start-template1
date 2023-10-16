@@ -1,49 +1,54 @@
+@import "../../styles/index"
+
 .header
   position: sticky
   top: 0
   left: 0
   right: 0
 
-  .header-container
-    background: #fff
+  .header-content
+    box-sizing: border-box
+    display: block
+    margin: 0 auto
+    max-width: $content-width
+    min-width: $content-width
 
-    .header-content
-      box-sizing: border-box
-      display: block
-      margin: 0 auto
-      max-width: 1140px
-      min-width: 1140px
+    .nav-panel
+      align-items: center
+      display: flex
+      max-height: 64px
+      padding: 14px
+      position: relative
 
-      .nav-panel
-        align-items: center
-        display: flex
+      .logo-container
+        display: block
+        line-height: 0
         max-height: 64px
-        padding: 14px
+        min-width: 153px
         position: relative
 
-        .logo-container
-          display: block
-          line-height: 0
-          max-height: 64px
-          min-width: 153px
-          position: relative
+      .menu-items
+        display: flex
+        flex-grow: 1
+        margin: 0 36px
 
-        .menu-items
-          display: flex
-          flex-grow: 1
-          margin: 0 36px
+        li
+          .menu-item
+            display: inline-block
+            max-width: 100%
 
-          li
-            .menu-item
-              display: inline-block
-              max-width: 100%
+            a
+              color: inherit
 
-              a
-                color: inherit
+              span
+                align-items: center
+                box-sizing: border-box
+                display: flex
+                letter-spacing: 0
+                padding: 4px 12px
 
-                span
-                  align-items: center
-                  box-sizing: border-box
-                  display: flex
-                  letter-spacing: 0
-                  padding: 4px 12px
+.switchers-container
+  ul
+    li
+      display: inline-block
+      margin-left: 10px
