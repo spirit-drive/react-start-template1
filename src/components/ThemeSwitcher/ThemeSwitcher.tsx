@@ -1,7 +1,7 @@
 import React, { FC, useContext } from 'react';
 import cn from 'clsx';
 import './ThemeSwitcher.sass';
-import { AppContext, Context } from '../../../App';
+import { AppContext, Context } from '../../App';
 import { useTranslation } from 'react-i18next';
 
 export const ThemeSwitcher: FC = () => {

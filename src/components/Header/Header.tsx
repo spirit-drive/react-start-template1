@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { Logo } from '../Logo/Logo';
 import './Header.sass';
 import cn from 'clsx';
-import { ThemeSwitcher } from './ThemeSwitcher/ThemeSwitcher';
+import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
 import { AppContext, Context } from '../../App';
-import { LocaleSwitcher } from './LocaleSwitcher/LocaleSwitcher';
+import { LocaleSwitcher } from '../LocaleSwitcher/LocaleSwitcher';
 
 export const Header: FC = () => {
   const context: AppContext = useContext<AppContext>(Context);

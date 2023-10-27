@@ -1,6 +1,6 @@
 import React, { FC, useContext } from 'react';
 import cn from 'clsx';
-import { AppContext, Context } from '../../../App';
+import { AppContext, Context } from '../../App';
 
 export const LocaleSwitcher: FC = () => {
   const context: AppContext = useContext<AppContext>(Context);
