@@ -1,4 +1,5 @@
 @import "reset"
+@import "utils"
 
 *
   box-sizing: border-box
@@ -8,10 +9,21 @@ html,
 body
   height: 100%
   font-size: 14px
-  background: #f6f7f8
   font-family: "Open Sans", "Helvetica", "Helvetica Neue", "Arial", sans-serif
   -webkit-font-smoothing: antialiased
   -webkit-overflow-scrolling: touch
 
 a
   text-decoration: none
+
+.header-dark
+  @include theme('dark')
+
+.layout-dark
+  @include theme('dark')
+
+.header-light
+  @include theme('light')
+
+.layout-light
+  @include theme('light')
