@@ -1,7 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import cn from 'clsx';
+import './PasswordField.sass';
 import { AuthInputs } from '../types';
-import { ErrorField } from '../ErrorField/ErrorField';
+import { ErrorField } from '../../Common/ErrorField/ErrorField';
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 
 interface PasswordFieldProps {
@@ -9,12 +10,12 @@ interface PasswordFieldProps {
   errors: FieldErrors<AuthInputs>;
 }
 
-export const PasswordField: FC<PasswordFieldProps> = ({ register, errors }) => {
+export const PasswordField: FC<PasswordFieldProps> = memo((props: PasswordFieldProps) => {
   return (
-    <>
+    <div className={cn('password-container')}>
       <label>Password:</label>
-      <input type={'password'} {...register('password', { required: true })} />
-      <ErrorField error={errors.password} />
-    </>
+      <input type={'password'} {...props.register('password', { required: true })} />
+      <ErrorField error={props.errors.password} />
+    </div>
   );
-};
+});
