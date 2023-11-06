@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Auth } from './Auth';
+import { AuthType } from './types';
 
 const meta: Meta<typeof Auth> = {
-  title: 'Components/Auth',
+  title: 'Forms/Auth',
   component: Auth,
   tags: ['autodocs'],
   parameters: {
@@ -13,4 +14,14 @@ const meta: Meta<typeof Auth> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const SignUp: Story = {
+  args: {
+    type: AuthType.signUp,
+  },
+};
+
+export const SignIn: Story = {
+  args: {
+    type: AuthType.signIn,
+  },
+};

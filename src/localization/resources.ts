@@ -24,7 +24,7 @@ export const resources = {
           third: 'меню 3',
         },
         switchers: {
-          theme: 'Темная Тема',
+          theme: 'Тёмная Тема',
         },
       },
     },
